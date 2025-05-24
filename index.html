@@ -615,6 +615,46 @@
                 explanationsDiv.style.display = 'none';
             }
         }
+// ¡Pega aquí la URL de la Aplicación Web de Google Apps Script que obtuviste!
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtpgZWL7juwrrwuq2bsoQZ8eg4xbMVkSgNgxvwF7FG8B_85LnsBSnVJZs41CPWX68y/exec'; // ¡REEMPLAZA ESTO!
+
+const form = document.getElementById('miEncuestaForm');
+const mensajeConfirmacion = document.getElementById('mensajeConfirmacion');
+const mensajeError = document.getElementById('mensajeError');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+    mensajeConfirmacion.textContent = ''; // Limpiar mensajes anteriores
+    mensajeError.textContent = '';
+
+    const formData = new FormData(form);
+    const object = {};
+    formData.forEach((value, key) => {
+        object[key] = value;
+    });
+
+    // Enviar los datos usando fetch API
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData 
+    })
+    .then(response => response.json()) 
+    .then(data => {
+        if (data.result === 'success') {
+            mensajeConfirmacion.textContent = '¡Tu respuesta ha sido enviada con éxito! Gracias.';
+            form.reset(); 
+        } else {
+            mensajeError.textContent = 'Hubo un error al enviar tu respuesta. Intenta de nuevo.';
+            console.error('Error del servidor:', data);
+        }
+    })
+    .catch(error => {
+        mensajeError.textContent = 'No se pudo conectar con el servidor. Verifica tu conexión.';
+        console.error('Error al enviar el formulario:', error);
+    });
+});
+
     </script>
 </body>
 </html>
