@@ -88,7 +88,7 @@
         #info-colaborador select:disabled { /* Estilo para inputs deshabilitados */
             background-color: #e9ecef;
             cursor: not-allowed;
-            opacity: 0.7; /* Para dar una pista visual más clara de que está deshabilitado */
+            opacity: 0.7; 
         }
 
 
@@ -180,13 +180,14 @@
             cursor: not-allowed;
             opacity: 0.7;
         }
-        .quiz-item ul li.disabled-option label { /* Para que el label también parezca deshabilitado */
+        .quiz-item ul li.disabled-option label { 
             cursor: not-allowed;
         }
         .quiz-item ul li label {
             display: flex;
             align-items: center;
             cursor: pointer;
+            width: 100%; 
         }
          .quiz-item ul li input[type="radio"] {
             margin-right: 10px;
@@ -206,8 +207,8 @@
             font-weight: bold;
         }
          .feedback-icon {
-            margin-left: auto; /* Mueve el icono al final de la línea */
-            padding-left: 10px; /* Espacio antes del icono */
+            margin-left: auto; 
+            padding-left: 10px; 
             font-size: 1.2em;
         }
         .correct-icon::after {
@@ -249,10 +250,13 @@
         #quiz-score-container.good { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7;}
         #quiz-score-container.average { background-color: #fff9c4; color: #f57f17; border: 1px solid #fff176;}
         #quiz-score-container.poor { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a;}
-        #quiz-score-container p { margin-bottom: 5px;}
+        #quiz-score-container p { margin-bottom: 5px;} 
         #quiz-score-container h3 {margin-top:0; color: #004a99;}
         #quiz-score { font-size: 1.3em; font-weight: bold;}
-        #colaborador-data-display { margin-top: 10px; font-size: 0.9em; color: #555; line-height: 1.5;}
+        #colaborador-data-display { margin-top: 10px; margin-bottom:15px; font-size: 0.9em; color: #555; line-height: 1.5;}
+        .additional-feedback { margin-top: 15px; padding-top:10px; border-top: 1px dashed #bbb;}
+        .additional-feedback p { font-size: 0.95em; line-height: 1.5; margin-bottom: 8px !important; }
+
 
         #quiz-explanations {
             margin-top: 20px;
@@ -417,82 +421,84 @@
             <p>¡Demuestra tu conocimiento! Selecciona la mejor respuesta. Una vez evaluado, no podrás cambiar tus opciones.</p>
             <form id="quizForm">
                 <div class="quiz-item" id="q1_eval">
-                    <p><strong>1. Según la guía, ¿cuál es el principal valor que la App Coppel busca entregar al cliente más allá de solo vender productos?</strong></p>
+                    <p><strong>1. Al destacar la "Experiencia Optimizada" de la app, ¿qué idea fundamental intentas transmitirle al cliente sobre su uso comparado con otros canales?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q1_eval" value="a"> a) Mostrar únicamente los productos más caros para aumentar el ticket promedio.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q1_eval" value="b"> b) Una experiencia de compra mejorada, más personal, conveniente y con comunicación directa.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q1_eval" value="c"> c) Reemplazar completamente la necesidad de visitar las tiendas físicas.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q1_eval" value="a"> a) Que la app contiene menos productos para que sea más rápida.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q1_eval" value="c"> c) Que la app es la única forma de obtener soporte técnico.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q1_eval" value="b"> b) Que la navegación y búsqueda de productos es más fluida, intuitiva y ágil en su dispositivo móvil.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q2_eval">
-                    <p><strong>2. Si un cliente valora mucho su privacidad, ¿qué aspecto clave sobre el manejo de datos en la App Coppel deberías enfatizar?</strong></p>
+                    <p><strong>2. Un cliente preocupado por "no querer otra app más" y que ya usa la web, ¿qué beneficio exclusivo de la app podrías resaltar para motivarlo a probarla?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q2_eval" value="a"> a) Que Coppel compartirá sus datos con otras empresas para ofrecerle más productos.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q2_eval" value="b"> b) Que la recolección de datos es mínima y solo se usa para publicidad general.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q2_eval" value="c"> c) Que sus datos se usan de forma segura para personalizar su experiencia y facilitar sus compras, cumpliendo normativas.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q2_eval" value="c"> c) Que la app permite acceder a ofertas flash o notificaciones de promociones que podrían no estar disponibles o ser tan inmediatas en la web.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q2_eval" value="b"> b) Que la app consume menos datos de internet que la página web.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q2_eval" value="a"> a) Que el diseño de la app es idéntico al de la página web, por lo que no aprenderá nada nuevo.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                  <div class="quiz-item" id="q3_eval">
-                    <p><strong>3. La guía sugiere que la personalización en la app beneficia al cliente porque:</strong></p>
+                    <p><strong>3. Cuando explicas la "Personalización Avanzada", ¿qué debe entender el cliente sobre cómo la app usa su información para su beneficio?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q3_eval" value="a"> a) Le muestra anuncios de productos que Coppel necesita vender urgentemente.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q3_eval" value="b"> b) Le presenta ofertas y productos más relevantes a sus gustos e historial, haciéndolo sentir comprendido.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q3_eval" value="c"> c) Le obliga a ver solo una categoría de productos para simplificar su decisión.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q3_eval" value="a"> a) Que la app compartirá sus preferencias con todas las redes sociales para mostrarle publicidad.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q3_eval" value="b"> b) Que la app le enviará correos electrónicos diarios con todos los productos nuevos sin importar sus gustos.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q3_eval" value="c"> c) Que la app, basándose en sus intereses y compras previas, le sugerirá productos y ofertas que realmente le puedan gustar, como un asesor personal.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                  <div class="quiz-item" id="q4_eval">
-                    <p><strong>4. Ante la objeción "No quiero otra app más", ¿cuál es el argumento diferenciador más fuerte de la App Coppel sobre la web móvil, según la guía?</strong></p>
+                    <p><strong>4. ¿Cuál de estas afirmaciones refleja mejor el espíritu de "Fidelización" que busca Coppel a través de su app, según lo expuesto en la guía?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q4_eval" value="a"> a) Que la app tiene exactamente las mismas funciones que la web, pero con un ícono diferente.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q4_eval" value="b"> b) Que la app podría ofrecer una experiencia más rápida, cómoda y acceso a promociones exclusivas no siempre disponibles en web.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q4_eval" value="c"> c) Que la app es obligatoria para poder realizar cualquier compra en Coppel.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q4_eval" value="a"> a) La app busca premiar la lealtad del cliente ofreciéndole acceso a programas y recompensas exclusivas que refuercen su relación con Coppel.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q4_eval" value="b"> b) La app principalmente ofrece descuentos para clientes que compran grandes volúmenes de productos de una sola vez.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q4_eval" value="c"> c) La app está diseñada para que los clientes no puedan usar otros canales de compra, asegurando así su fidelidad.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                  <div class="quiz-item" id="q5_eval">
-                    <p><strong>5. ¿Cuál es el tono general que debes adoptar al manejar objeciones de los clientes sobre la app?</strong></p>
+                    <p><strong>5. Un cliente menciona: "Casi no compro online, ¿para qué querría la app?". Según la guía, ¿cuál sería el enfoque más adecuado para tu respuesta?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q5_eval" value="a"> a) Insistente y un poco agresivo para asegurar la descarga.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q5_eval" value="b"> b) Indiferente, ya que si el cliente no quiere, no hay nada que hacer.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q5_eval" value="c"> c) Empático, comprensivo y enfocado en resaltar el valor y soluciones a sus preocupaciones.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q5_eval" value="b"> b) Sugerirle que es mejor que espere a que necesite hacer una compra grande para descargarla.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q5_eval" value="c"> c) Explicarle que incluso sin comprar frecuentemente, la app es útil para descubrir novedades, ofertas, y guardar favoritos, sin compromiso alguno.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q5_eval" value="a"> a) Indicarle que la app está principalmente diseñada para compradores compulsivos y que no le servirá.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q6_eval">
-                    <p><strong>6. Un cliente te comenta que "casi no compra online". ¿Cómo le presentarías el valor de la App Coppel según las estrategias de la guía?</strong></p>
+                    <p><strong>6. La estrategia "Comunicación Directa" a través de notificaciones de la app es valiosa porque, si se gestiona bien:</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q6_eval" value="a"> a) Le dirías que entonces la app no es para él.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q6_eval" value="b"> b) Como una herramienta útil para descubrir novedades y ofertas al instante, sin obligación de compra, como tener un catálogo interactivo.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q6_eval" value="c"> c) Insistirías en que debe empezar a comprar más online para aprovecharla.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name
+="q6_eval" value="a"> a) Permite enviar publicidad masiva de todos los productos de Coppel a todos los usuarios.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q6_eval" value="c"> c) Asegura que el cliente esté informado de manera oportuna sobre ofertas, novedades o estado de pedidos que son relevantes para él, siendo siempre controlables.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q6_eval" value="b"> b) Reemplaza por completo la necesidad de que el cliente visite la tienda o la web para informarse.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q7_eval">
-                    <p><strong>7. Verdadero o Falso: Según la guía, una de las principales ventajas de que los clientes usen la app es la posibilidad de una comunicación más directa y personalizada con ellos a través de notificaciones útiles.</strong></p>
+                    <p><strong>7. Si un cliente dice "No tengo tiempo ahora" para descargar la app, y le ofreces un folleto con un código QR, ¿qué principio de manejo de objeciones estás aplicando?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q7_eval" value="a"> a) Verdadero</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q7_eval" value="f"> b) Falso</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q7_eval" value="c"> c) Minimizar la objeción y decirle que en realidad sí tiene tiempo.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q7_eval" value="b"> b) Empatizar con su prisa y facilitarle la acción futura de descarga, manteniendo el interés.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q7_eval" value="a"> a) Ignorar su falta de tiempo y seguir insistiendo en la descarga inmediata.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q8_eval">
-                    <p><strong>8. La frase clave "Súper ligera" al manejar una objeción de espacio en el teléfono, busca transmitir que la app:</strong></p>
+                    <p><strong>8. La principal razón por la que tu papel como colaborador es "CLAVE" para impulsar las descargas de la app, según la introducción de la guía, es porque:</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q8_eval" value="a"> a) Tiene muy pocas funcionalidades para no pesar.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q8_eval" value="b"> b) Está optimizada para ocupar poco espacio, sin sacrificar beneficios importantes.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q8_eval" value="c"> c) Es una versión de prueba con contenido limitado.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q8_eval" value="a"> a) Los clientes confían en tu recomendación personal y eres el puente para que descubran los beneficios de la app.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q8_eval" value="b"> b) Eres el único responsable de instalar la app en los teléfonos de los clientes.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q8_eval" value="c"> c) Tienes acceso a descuentos especiales que solo puedes dar si el cliente descarga la app frente a ti.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q9_eval">
-                    <p><strong>9. Si un cliente expresa que "no tiene tiempo ahora" para descargar la app, la guía sugiere como acción principal:</strong></p>
+                    <p><strong>9. Al asegurar que la app es "súper ligera" ante la objeción de espacio, ¿qué es crucial que el cliente entienda sobre el balance entre tamaño y beneficio?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q9_eval" value="a"> a) Olvidar el tema y no volver a mencionarlo para no molestarlo.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q9_eval" value="b"> b) Destacar la rapidez de la descarga y, si persiste la prisa, ofrecer una forma fácil de recordarlo (anotar nombre, QR).</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q9_eval" value="c"> c) Explicarle detalladamente todos los beneficios de la app durante al menos 5 minutos, aunque tenga prisa.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q9_eval" value="a"> a) Que es tan ligera porque solo muestra una pequeña parte del catálogo Coppel.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q9_eval" value="b"> b) Que, aunque ocupe un pequeño espacio, los beneficios como descuentos exclusivos o acceso rápido a información, lo compensan ampliamente.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q9_eval" value="c"> c) Que si borra otras aplicaciones, la nuestra cabrá sin problema, sin importar sus beneficios.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
                 <div class="quiz-item" id="q10_eval">
-                    <p><strong>10. El concepto de "Mayor Engagement" a través de la app implica que el cliente:</strong></p>
+                    <p><strong>10. ¿Cuál de los siguientes NO es un objetivo primordial de la "Guía Maestra" que estás estudiando?</strong></p>
                     <ul>
-                        <li><label><input type="radio" name="q10_eval" value="a"> a) Se verá obligado a comprar más seguido aunque no lo desee.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q10_eval" value="b"> b) Establecerá un lazo más fuerte con la marca Coppel, interactuando más y teniéndola más presente.</label><span class="feedback-icon"></span></li>
-                        <li><label><input type="radio" name="q10_eval" value="c"> c) Únicamente podrá contactar a Coppel a través de la app, eliminando otros canales.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q10_eval" value="c"> c) Describir detalladamente el proceso técnico para desarrollar aplicaciones móviles complejas.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q10_eval" value="b"> b) Ayudarte a entender la importancia estratégica de la App Coppel para la relación con el cliente.</label><span class="feedback-icon"></span></li>
+                        <li><label><input type="radio" name="q10_eval" value="a"> a) Proveerte herramientas y argumentos para manejar eficazmente las objeciones de los clientes al recomendar la app.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
             </form>
@@ -504,20 +510,23 @@
                 <h3>Resultados de la Evaluación:</h3>
                 <div id="colaborador-data-display"></div>
                 <p id="quiz-score"></p>
+                <div class="additional-feedback" id="additionalFeedbackMessages">
+                    <!-- Mensajes dinámicos aquí -->
+                </div>
             </div>
             
             <div id="quiz-explanations" style="display:none;">
                 <h3>Explicaciones Detalladas:</h3>
-                 <p><strong>1. (b)</strong> El valor central de la app es mejorar la experiencia global del cliente, haciéndola más personal, cómoda y directa, no solo enfocarse en ventas o reemplazar canales.</p>
-                <p><strong>2. (c)</strong> La confianza se construye asegurando el uso seguro de datos para mejorar su experiencia y cumplir con la ley, no compartiéndolos indiscriminadamente o minimizando su uso.</p>
-                <p><strong>3. (b)</strong> La personalización efectiva hace que el cliente se sienta entendido y reciba contenido relevante, no que se le muestre lo que la empresa quiere vender o se limite su elección.</p>
-                <p><strong>4. (b)</strong> La app puede ofrecer ventajas tangibles como mayor velocidad, comodidad y promociones exclusivas, que son un plus sobre la web móvil, sin ser obligatoria.</p>
-                <p><strong>5. (c)</strong> La empatía y el enfoque en soluciones y valor son clave para manejar objeciones, no la insistencia, la indiferencia o la agresividad.</p>
-                <p><strong>6. (b)</strong> Incluso para compradores ocasionales, la app sirve como una herramienta de descubrimiento y acceso a ofertas, como un catálogo interactivo y conveniente.</p>
-                <p><strong>7. (a) Verdadero.</strong> La comunicación directa y personalizada mediante notificaciones (controlables) es un beneficio destacado para mantener al cliente informado y conectado.</p>
-                <p><strong>8. (b)</strong> "Súper ligera" implica optimización de espacio sin perder funcionalidades clave, ofreciendo un buen balance entre tamaño y utilidad.</p>
-                <p><strong>9. (b)</strong> Ante la falta de tiempo, se debe ser breve, destacar la rapidez, y si es necesario, facilitar la acción futura en lugar de presionar o abandonar.</p>
-                <p><strong>10. (b)</strong> "Mayor Engagement" se refiere a fortalecer la relación y conexión del cliente con la marca Coppel a través de interacciones más frecuentes y significativas facilitadas por la app.</p>
+                 <p><strong>1. (b)</strong> La "Experiencia Optimizada" se refiere a la facilidad, rapidez y adaptación al móvil que la app ofrece para una mejor interacción del cliente con Coppel.</p>
+                <p><strong>2. (c)</strong> El acceso a promociones flash o notificaciones exclusivas es un diferenciador clave que puede incentivar al usuario web a probar la app para no perderse oportunidades únicas.</p>
+                <p><strong>3. (c)</strong> La personalización bien entendida significa que la app se adapta al cliente, mostrándole contenido relevante a sus gustos e historial, como un buen asesor personal.</p>
+                <p><strong>4. (a)</strong> La fidelización a través de la app busca crear una relación más estrecha premiando al cliente con beneficios exclusivos, haciendo que elija Coppel por el valor agregado.</p>
+                <p><strong>5. (c)</strong> Incluso para compradores ocasionales, la app sirve como un canal de descubrimiento y conveniencia, permitiendo explorar y guardar intereses sin la presión de una compra inmediata.</p>
+                <p><strong>6. (c)</strong> Una comunicación directa efectiva es aquella que es pertinente, oportuna y controlable por el usuario, ofreciendo información útil sin ser intrusiva.</p>
+                <p><strong>7. (b)</strong> Al ofrecer una alternativa fácil como un QR para una descarga posterior, demuestras comprensión por el tiempo del cliente y mantienes la puerta abierta, facilitando la acción futura.</p>
+                <p><strong>8. (a)</strong> Tu recomendación personal es crucial porque los clientes tienden a confiar en la palabra de un colaborador que les atiende, convirtiéndote en un embajador de los beneficios de la app.</p>
+                <p><strong>9. (b)</strong> Al decir que es "ligera", se busca transmitir que el pequeño espacio que ocupa es una inversión mínima comparada con los valiosos beneficios de conveniencia y acceso que ofrece.</p>
+                <p><strong>10. (c)</strong> La guía se enfoca en la estrategia de promoción y manejo de objeciones de la app, no en los aspectos técnicos de su desarrollo, que es una especialidad diferente.</p>
                 <hr>
                 <p><strong>¡Sigue practicando!</strong> Cada respuesta correcta te ayuda a consolidar tu conocimiento sobre cómo promover la App Coppel eficazmente.</p>
             </div>
@@ -525,9 +534,9 @@
     </div>
 
     <script>
-        const correctAnswers = {
-            q1_eval: 'b', q2_eval: 'c', q3_eval: 'b', q4_eval: 'b', q5_eval: 'c',
-            q6_eval: 'b', q7_eval: 'a', q8_eval: 'b', q9_eval: 'b', q10_eval: 'b'
+        const correctAnswers = { //Respuestas actualizadas
+            q1_eval: 'b', q2_eval: 'c', q3_eval: 'c', q4_eval: 'a', q5_eval: 'c',
+            q6_eval: 'c', q7_eval: 'b', q8_eval: 'a', q9_eval: 'b', q10_eval: 'c'
         };
         let quizEvaluated = false; 
 
@@ -553,25 +562,23 @@
             const form = document.getElementById('quizForm');
             const evaluateBtn = document.getElementById('evaluateBtn');
 
-            // Deshabilitar campos de información del colaborador
             nombreCompletoInput.disabled = true;
             numeroEmpleadoInput.disabled = true;
             tiendaSelect.disabled = true;
 
-            // Limpiar feedback visual anterior (de las opciones de respuesta)
             form.querySelectorAll('.quiz-item ul li').forEach(li => {
                 li.classList.remove('correct-answer', 'incorrect-answer');
                 const icon = li.querySelector('.feedback-icon');
-                if (icon) icon.className = 'feedback-icon'; // Resetea clase base del icono
+                if (icon) icon.className = 'feedback-icon';
             });
             
             for (const questionName in correctAnswers) {
                 const radioButtons = form.elements[questionName];
                 let selectedOptionValue = null;
-                if (radioButtons) { // Asegurarse que el grupo de radio buttons existe
-                    if (radioButtons.value) { // Si es un solo radio (como en un V/F mal implementado)
+                if (radioButtons) { 
+                    if (radioButtons.value !== undefined && radioButtons.length === undefined ) { 
                          selectedOptionValue = radioButtons.checked ? radioButtons.value : null;
-                    } else { // Si es una NodeList de radio buttons
+                    } else { 
                         for(const radioButton of radioButtons){
                             if(radioButton.checked){
                                 selectedOptionValue = radioButton.value;
@@ -594,7 +601,7 @@
                         if (feedbackIcon) feedbackIcon.classList.add('incorrect-icon');
                         
                         const correctLi = document.querySelector(`input[name="${questionName}"][value="${correctAnswers[questionName]}"]`).closest('li');
-                        if(correctLi && !correctLi.classList.contains('correct-answer')){ // Solo si no fue la elegida
+                        if(correctLi && !correctLi.classList.contains('correct-answer')){ 
                              correctLi.classList.add('correct-answer'); 
                              const correctFeedbackIcon = correctLi.querySelector('.feedback-icon');
                              if(correctFeedbackIcon) correctFeedbackIcon.classList.add('correct-icon');
@@ -606,35 +613,45 @@
             const allRadios = form.querySelectorAll('input[type="radio"]');
             allRadios.forEach(radio => {
                 radio.disabled = true;
-                // Asegurar que el label del padre li también reciba el estilo visual de deshabilitado
                 const parentLi = radio.closest('li');
                 if (parentLi) {
                     parentLi.classList.add('disabled-option');
                 }
             });
             evaluateBtn.disabled = true;
-            quizEvaluated = true;
+            quizEvaluated = true; 
 
             const colaboradorDataDisplay = document.getElementById('colaborador-data-display');
             colaboradorDataDisplay.innerHTML = `<strong>Colaborador:</strong> ${nombreCompletoInput.value} <br> <strong>No. Empleado:</strong> ${numeroEmpleadoInput.value} <br> <strong>Tienda:</strong> ${tiendaSelect.value}`;
 
             const scoreContainer = document.getElementById('quiz-score-container');
             const scoreDisplay = document.getElementById('quiz-score');
+            const additionalFeedbackMessagesDiv = document.getElementById('additionalFeedbackMessages');
             const percentage = (score / totalQuestions) * 100;
+            
             scoreDisplay.innerHTML = `Tu calificación: ${score} de ${totalQuestions} correctas (${percentage.toFixed(0)}%).`;
             
-            scoreContainer.className = 'quiz-score-container'; // Reset classes
-            if (percentage >= 80) {
+            let feedbackHTML = "<p><strong>Importante:</strong> Por favor, toma una captura de pantalla de este resultado completo (incluyendo tus datos y calificación) y envíala a tu gerente.</p>";
+
+            if (percentage >= 90) {
+                feedbackHTML += "<p style='color:#28a745; font-weight:bold; margin-top:10px;'>¡EXCELENTE DESEMPEÑO! 🎉 Felicitaciones por tu profundo conocimiento sobre la App Coppel y tu valioso compromiso con nuestra empresa. ¡Tu esfuerzo es reconocido!</p>";
+            } else {
+                feedbackHTML += "<p style='color:#ff8c00; font-weight:bold; margin-top:10px;'>Para fortalecer tus conocimientos, te recomendamos acercarte con tu gerente y solicitar un breve reforzamiento sobre los puntos clave de esta guía.</p>";
+            }
+            additionalFeedbackMessagesDiv.innerHTML = feedbackHTML;
+            
+            scoreContainer.className = 'quiz-score-container'; 
+            if (percentage >= 80) { 
                 scoreContainer.classList.add('good');
             } else if (percentage >= 60) {
                 scoreContainer.classList.add('average');
             } else {
                 scoreContainer.classList.add('poor');
             }
-            scoreContainer.style.display = 'block';
+            scoreContainer.style.display = 'block'; 
             
-            document.getElementById('explanationsBtn').style.display = 'inline-block';
-            document.getElementById('quiz-explanations').style.display = 'none'; 
+            document.getElementById('explanationsBtn').style.display = 'inline-block'; 
+            document.getElementById('quiz-explanations').style.display = 'none';  
         }
 
         function showExplanations() {
