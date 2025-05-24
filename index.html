@@ -75,14 +75,22 @@
             color: #004a99;
         }
         #info-colaborador input[type="text"], 
-        #info-colaborador input[type="number"] {
-            width: calc(100% - 22px);
+        #info-colaborador input[type="number"],
+        #info-colaborador select { /* Estilo para el select */
+            width: calc(100% - 0px); /* Ajustado para el box-sizing */
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
+        #info-colaborador input:disabled,
+        #info-colaborador select:disabled { /* Estilo para inputs deshabilitados */
+            background-color: #e9ecef;
+            cursor: not-allowed;
+            opacity: 0.7; /* Para dar una pista visual más clara de que está deshabilitado */
+        }
+
 
         details {
             background-color: #e3f2fd; 
@@ -165,12 +173,15 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .quiz-item ul li:hover:not(.disabled-option) { /* Solo hover si no está deshabilitado */
+        .quiz-item ul li:hover:not(.disabled-option) { 
             background-color: #f0f0f0;
         }
         .quiz-item ul li.disabled-option {
             cursor: not-allowed;
             opacity: 0.7;
+        }
+        .quiz-item ul li.disabled-option label { /* Para que el label también parezca deshabilitado */
+            cursor: not-allowed;
         }
         .quiz-item ul li label {
             display: flex;
@@ -180,6 +191,9 @@
          .quiz-item ul li input[type="radio"] {
             margin-right: 10px;
         }
+         .quiz-item ul li input[type="radio"]:disabled {
+             cursor: not-allowed;
+         }
 
         .correct-answer {
             background-color: #c8e6c9 !important; 
@@ -192,7 +206,8 @@
             font-weight: bold;
         }
          .feedback-icon {
-            margin-left: 10px;
+            margin-left: auto; /* Mueve el icono al final de la línea */
+            padding-left: 10px; /* Espacio antes del icono */
             font-size: 1.2em;
         }
         .correct-icon::after {
@@ -218,7 +233,7 @@
             display: inline-block; 
             margin: 10px 5px 0 0;
         }
-        .evaluate-button:disabled { /* Estilo para botón deshabilitado */
+        .evaluate-button:disabled { 
             background-color: #cccccc;
             cursor: not-allowed;
         }
@@ -235,8 +250,9 @@
         #quiz-score-container.average { background-color: #fff9c4; color: #f57f17; border: 1px solid #fff176;}
         #quiz-score-container.poor { background-color: #ffebee; color: #c62828; border: 1px solid #ef9a9a;}
         #quiz-score-container p { margin-bottom: 5px;}
+        #quiz-score-container h3 {margin-top:0; color: #004a99;}
         #quiz-score { font-size: 1.3em; font-weight: bold;}
-        #colaborador-data-display { margin-top: 10px; font-size: 0.9em; color: #555;}
+        #colaborador-data-display { margin-top: 10px; font-size: 0.9em; color: #555; line-height: 1.5;}
 
         #quiz-explanations {
             margin-top: 20px;
@@ -271,7 +287,16 @@
                 </div>
                 <div>
                     <label for="tienda">Tienda:</label>
-                    <input type="text" id="tienda" name="tienda" required>
+                    <select id="tienda" name="tienda" required>
+                        <option value="">Selecciona tu tienda...</option>
+                        <option value="77">77</option>
+                        <option value="102">102</option>
+                        <option value="110">110</option>
+                        <option value="181">181</option>
+                        <option value="668">668</option>
+                        <option value="851">851</option>
+                        <option value="6678">6678</option>
+                    </select>
                 </div>
             </form>
         </section>
@@ -285,7 +310,6 @@
         <section id="importancia_app">
              <h2>¿Por Qué es TAN Importante que el Cliente Descargue la App?</h2>
             <p>Al invitar a un cliente a descargar la App Coppel, no solo le ofreces una herramienta, le abres la puerta a una experiencia Coppel superior. Piensa en esto como un servicio extra que tú le das, facilitándole la vida y acercándolo más a lo que necesita y le gusta. Aquí te explicamos por qué cada descarga cuenta:</p>
-            <!-- ... (beneficios sin cambios) ... -->
             <details>
                 <summary><strong>Mayor Engagement:</strong> Creamos un lazo más fuerte</summary>
                 <div class="benefit-details">
@@ -333,7 +357,6 @@
         <section id="manejo-objeciones">
             <h2>Manejo de Objeciones: ¡Convierte un "No" en una Oportunidad!</h2>
             <p>Respuestas cortas y directas para recordar fácilmente. ¡Usa estas frases clave!</p>
-             <!-- ... (objeciones simplificadas sin cambios) ... -->
             <details>
                 <summary>Objeción 1: "No tengo espacio en mi teléfono."</summary>
                 <div class="objection-response">
@@ -392,7 +415,6 @@
         <section id="evaluacion-conocimiento">
             <h2>Autoevaluación: ¿Qué Aprendiste?</h2>
             <p>¡Demuestra tu conocimiento! Selecciona la mejor respuesta. Una vez evaluado, no podrás cambiar tus opciones.</p>
-
             <form id="quizForm">
                 <div class="quiz-item" id="q1_eval">
                     <p><strong>1. Según la guía, ¿cuál es el principal valor que la App Coppel busca entregar al cliente más allá de solo vender productos?</strong></p>
@@ -402,7 +424,6 @@
                         <li><label><input type="radio" name="q1_eval" value="c"> c) Reemplazar completamente la necesidad de visitar las tiendas físicas.</label><span class="feedback-icon"></span></li>
                     </ul>
                 </div>
-
                 <div class="quiz-item" id="q2_eval">
                     <p><strong>2. Si un cliente valora mucho su privacidad, ¿qué aspecto clave sobre el manejo de datos en la App Coppel deberías enfatizar?</strong></p>
                     <ul>
@@ -508,50 +529,63 @@
             q1_eval: 'b', q2_eval: 'c', q3_eval: 'b', q4_eval: 'b', q5_eval: 'c',
             q6_eval: 'b', q7_eval: 'a', q8_eval: 'b', q9_eval: 'b', q10_eval: 'b'
         };
-        let quizEvaluated = false; // Flag para saber si ya se evaluó
+        let quizEvaluated = false; 
+
+        // Inputs de información del colaborador
+        const nombreCompletoInput = document.getElementById('nombreCompleto');
+        const numeroEmpleadoInput = document.getElementById('numeroEmpleado');
+        const tiendaSelect = document.getElementById('tienda');
 
         function validateColaboradorInfo() {
-            const nombre = document.getElementById('nombreCompleto').value.trim();
-            const empleado = document.getElementById('numeroEmpleado').value.trim();
-            const tienda = document.getElementById('tienda').value.trim();
-            if (!nombre || !empleado || !tienda) {
-                alert("Por favor, completa todos los campos de Información del Colaborador antes de evaluar.");
+            if (!nombreCompletoInput.value.trim() || !numeroEmpleadoInput.value.trim() || tiendaSelect.value === "") {
+                alert("Por favor, completa todos los campos de Información del Colaborador (incluyendo seleccionar una tienda) antes de evaluar.");
                 return false;
             }
             return true;
         }
 
         function evaluateQuiz() {
-            if (quizEvaluated) return; // No hacer nada si ya se evaluó
-            if (!validateColaboradorInfo()) return; // Validar info del colaborador
+            if (quizEvaluated) return; 
+            if (!validateColaboradorInfo()) return;
 
             let score = 0;
             const totalQuestions = Object.keys(correctAnswers).length;
             const form = document.getElementById('quizForm');
             const evaluateBtn = document.getElementById('evaluateBtn');
 
-            // Limpiar feedback anterior
-            form.querySelectorAll('li').forEach(li => {
+            // Deshabilitar campos de información del colaborador
+            nombreCompletoInput.disabled = true;
+            numeroEmpleadoInput.disabled = true;
+            tiendaSelect.disabled = true;
+
+            // Limpiar feedback visual anterior (de las opciones de respuesta)
+            form.querySelectorAll('.quiz-item ul li').forEach(li => {
                 li.classList.remove('correct-answer', 'incorrect-answer');
                 const icon = li.querySelector('.feedback-icon');
-                if (icon) icon.className = 'feedback-icon';
+                if (icon) icon.className = 'feedback-icon'; // Resetea clase base del icono
             });
             
             for (const questionName in correctAnswers) {
                 const radioButtons = form.elements[questionName];
-                let selectedOption = null;
-                for(const radioButton of radioButtons){
-                    if(radioButton.checked){
-                        selectedOption = radioButton.value;
-                        break;
+                let selectedOptionValue = null;
+                if (radioButtons) { // Asegurarse que el grupo de radio buttons existe
+                    if (radioButtons.value) { // Si es un solo radio (como en un V/F mal implementado)
+                         selectedOptionValue = radioButtons.checked ? radioButtons.value : null;
+                    } else { // Si es una NodeList de radio buttons
+                        for(const radioButton of radioButtons){
+                            if(radioButton.checked){
+                                selectedOptionValue = radioButton.value;
+                                break;
+                            }
+                        }
                     }
                 }
                 
-                if (selectedOption) {
-                    const selectedLi = document.querySelector(`input[name="${questionName}"][value="${selectedOption}"]`).closest('li');
+                if (selectedOptionValue) {
+                    const selectedLi = document.querySelector(`input[name="${questionName}"][value="${selectedOptionValue}"]`).closest('li');
                     const feedbackIcon = selectedLi.querySelector('.feedback-icon');
 
-                    if (selectedOption === correctAnswers[questionName]) {
+                    if (selectedOptionValue === correctAnswers[questionName]) {
                         score++;
                         selectedLi.classList.add('correct-answer');
                         if (feedbackIcon) feedbackIcon.classList.add('correct-icon');
@@ -560,7 +594,7 @@
                         if (feedbackIcon) feedbackIcon.classList.add('incorrect-icon');
                         
                         const correctLi = document.querySelector(`input[name="${questionName}"][value="${correctAnswers[questionName]}"]`).closest('li');
-                        if(correctLi && !correctLi.classList.contains('correct-answer')){
+                        if(correctLi && !correctLi.classList.contains('correct-answer')){ // Solo si no fue la elegida
                              correctLi.classList.add('correct-answer'); 
                              const correctFeedbackIcon = correctLi.querySelector('.feedback-icon');
                              if(correctFeedbackIcon) correctFeedbackIcon.classList.add('correct-icon');
@@ -569,31 +603,27 @@
                 }
             }
 
-            // Deshabilitar todos los inputs de radio y el botón de evaluar
             const allRadios = form.querySelectorAll('input[type="radio"]');
             allRadios.forEach(radio => {
                 radio.disabled = true;
-                radio.closest('li').classList.add('disabled-option'); // Añadir clase para feedback visual de deshabilitado
+                // Asegurar que el label del padre li también reciba el estilo visual de deshabilitado
+                const parentLi = radio.closest('li');
+                if (parentLi) {
+                    parentLi.classList.add('disabled-option');
+                }
             });
             evaluateBtn.disabled = true;
             quizEvaluated = true;
 
-
-            // Mostrar datos del colaborador
-            const nombreCompleto = document.getElementById('nombreCompleto').value;
-            const numeroEmpleado = document.getElementById('numeroEmpleado').value;
-            const tienda = document.getElementById('tienda').value;
             const colaboradorDataDisplay = document.getElementById('colaborador-data-display');
-            colaboradorDataDisplay.innerHTML = `<strong>Colaborador:</strong> ${nombreCompleto} <br> <strong>No. Empleado:</strong> ${numeroEmpleado} <br> <strong>Tienda:</strong> ${tienda}`;
+            colaboradorDataDisplay.innerHTML = `<strong>Colaborador:</strong> ${nombreCompletoInput.value} <br> <strong>No. Empleado:</strong> ${numeroEmpleadoInput.value} <br> <strong>Tienda:</strong> ${tiendaSelect.value}`;
 
-
-            // Mostrar puntaje
             const scoreContainer = document.getElementById('quiz-score-container');
             const scoreDisplay = document.getElementById('quiz-score');
             const percentage = (score / totalQuestions) * 100;
             scoreDisplay.innerHTML = `Tu calificación: ${score} de ${totalQuestions} correctas (${percentage.toFixed(0)}%).`;
             
-            scoreContainer.className = ''; // Reset classes
+            scoreContainer.className = 'quiz-score-container'; // Reset classes
             if (percentage >= 80) {
                 scoreContainer.classList.add('good');
             } else if (percentage >= 60) {
@@ -615,46 +645,6 @@
                 explanationsDiv.style.display = 'none';
             }
         }
-// ¡Pega aquí la URL de la Aplicación Web de Google Apps Script que obtuviste!
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtpgZWL7juwrrwuq2bsoQZ8eg4xbMVkSgNgxvwF7FG8B_85LnsBSnVJZs41CPWX68y/exec'; // ¡REEMPLAZA ESTO!
-
-const form = document.getElementById('miEncuestaForm');
-const mensajeConfirmacion = document.getElementById('mensajeConfirmacion');
-const mensajeError = document.getElementById('mensajeError');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
-
-    mensajeConfirmacion.textContent = ''; // Limpiar mensajes anteriores
-    mensajeError.textContent = '';
-
-    const formData = new FormData(form);
-    const object = {};
-    formData.forEach((value, key) => {
-        object[key] = value;
-    });
-
-    // Enviar los datos usando fetch API
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: formData 
-    })
-    .then(response => response.json()) 
-    .then(data => {
-        if (data.result === 'success') {
-            mensajeConfirmacion.textContent = '¡Tu respuesta ha sido enviada con éxito! Gracias.';
-            form.reset(); 
-        } else {
-            mensajeError.textContent = 'Hubo un error al enviar tu respuesta. Intenta de nuevo.';
-            console.error('Error del servidor:', data);
-        }
-    })
-    .catch(error => {
-        mensajeError.textContent = 'No se pudo conectar con el servidor. Verifica tu conexión.';
-        console.error('Error al enviar el formulario:', error);
-    });
-});
-
     </script>
 </body>
 </html>
